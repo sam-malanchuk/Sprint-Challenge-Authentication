@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const AuthModel = require('./auth-model.js');
 
 router.post('/register', (req, res) => {
   const { body } = req;
+  body.password = bcrypt.hashSync(body.password, 6);
 
   AuthModel.insert(body)
     .then(createdUser => {
