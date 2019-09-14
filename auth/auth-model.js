@@ -18,6 +18,6 @@ async function insert(user) {
   return findById(id);
 }
 
-function findBy() {
-
+function findBy(filter) {
+  return db('users').where(filter);
 }
