@@ -53,7 +53,7 @@ function generateToken(user) {
     const options = {
       expiresIn: '1d'
     };
-    return jwt.sign(payload, "the key should never be hardcoded", options); // hardcoding the key just as an example
+    return jwt.sign(payload, "the key should actually be stored in an ENV file", options); // key should never be hard coded
 }
 
 module.exports = router;
