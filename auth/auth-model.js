@@ -12,8 +12,10 @@ function findById(id) {
     .first();
 }
 
-function insert() {
+async function insert(user) {
+  const [id] = await db('users').insert(user);
 
+  return findById(id);
 }
 
 function findBy() {
